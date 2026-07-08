@@ -1,10 +1,18 @@
 import React from 'react';
 import ChildComponent from './ChildComponent';
+import AddComponent from './AddComponent';
 class MyComponent extends React.Component {
 
     state = {
-        firstName: '',
-        lastName: ''
+        firstName: 'eric',
+        lastName: '',
+        arrJobs: [
+            { id: 'abcjob', title: 'developer', salary: '50$' },
+            { id: 'abcjob2', title: 'tester', salary: '30$' },
+            { id: 'abcjob3', title: 'free', salary: '100$' }
+
+
+        ]
     }
 
     handleChangeFirstName = (event) => {
@@ -34,6 +42,7 @@ class MyComponent extends React.Component {
 
         return (
             <>
+                <AddComponent />
                 <form action="/action_page.php">
                     <label htmlfor="fname">First name:</label><br />
                     <input type="text"
@@ -53,9 +62,13 @@ class MyComponent extends React.Component {
                 </form>
 
                 <ChildComponent
-                    name={'child one'}
+                    name={this.state.firstName}
                     age={'25'}
+                    address={'ha noi'}
+                    arrJobs={this.state.arrJobs}
                 />
+
+
 
 
             </>
